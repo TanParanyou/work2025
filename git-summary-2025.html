@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Git Commit Summary 2025 - Tan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f472b6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(244, 114, 182, 0.2) 100%);
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .author {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-card);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .stat-card.frontend::before {
+            background: linear-gradient(90deg, var(--accent), var(--success));
+        }
+
+        .stat-card.backend::before {
+            background: linear-gradient(90deg, var(--warning), var(--secondary));
+        }
+
+        .stat-card.total::before {
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card.frontend .stat-icon {
+            background: rgba(6, 182, 212, 0.2);
+        }
+
+        .stat-card.backend .stat-icon {
+            background: rgba(245, 158, 11, 0.2);
+        }
+
+        .stat-card.total .stat-icon {
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .stat-detail {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        /* Section Title */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .section-title .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-period {
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Backend Section */
+        .backend-section {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(244, 114, 182, 0.1) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .backend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .backend-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .backend-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .backend-card ul {
+            list-style: none;
+        }
+
+        .backend-card li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .backend-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--warning);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.1) 100%);
+            border-radius: 16px;
+        }
+
+        .footer-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .generated-date {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .timeline-period {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>📊 Git Commit Summary 2025</h1>
+                <p class="subtitle">สรุปผลงานการพัฒนาซอฟต์แวร์ตลอดปี 2025</p>
+                <div class="author">
+                    <div class="avatar">T</div>
+                    <div>
+                        <strong>Tan (TanParanyou)</strong>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Full Stack Developer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card frontend">
+                <div class="stat-icon">🎨</div>
+                <div class="stat-number">750</div>
+                <div class="stat-label">Frontend Commits</div>
+                <div class="stat-detail">sadai-project (Next.js + HeroUI)</div>
+            </div>
+            <div class="stat-card backend">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-number">108</div>
+                <div class="stat-label">Backend Commits</div>
+                <div class="stat-detail">GOJO-API (C# .NET)</div>
+            </div>
+            <div class="stat-card total">
+                <div class="stat-icon">🚀</div>
+                <div class="stat-number">858</div>
+                <div class="stat-label">Total Commits</div>
+                <div class="stat-detail">รวมทั้ง 2 Repositories</div>
+            </div>
+        </div>
+
+        <!-- Frontend Features -->
+        <div class="section-title">
+            <h2>🎨 Frontend Development</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard & Reports</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>สร้าง Dashboard หลักพร้อม Chart.js</li>
+                    <li>รายงานการขาย, Stock, ส่วนลด</li>
+                    <li>รายงานเปรียบเทียบสาขา</li>
+                    <li>รายงาน Credit Invoice</li>
+                    <li>รายงาน Course Purchased & Reward Redeemed</li>
+                    <li>รายงาน Member Redemption</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">📅</div>
+                    <h3>Booking & Calendar System</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>พัฒนาระบบจองนัดหมายพร้อม Calendar view</li>
+                    <li>ระบบ Break Time สำหรับพนักงาน</li>
+                    <li>การจัดการ Booking Detail</li>
+                    <li>ระบบ Verify Slip</li>
+                    <li>Addons booking feature</li>
+                    <li>Employee grid และ time slots</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">👥</div>
+                    <h3>Member & Rewards System</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>ระบบสมาชิก (Register, Profile, History)</li>
+                    <li>ระบบคะแนนสะสม Points</li>
+                    <li>Member Package & Level Management</li>
+                    <li>ระบบ Reward สำหรับสมาชิก</li>
+                    <li>Ticket & Coupon System</li>
+                    <li>Member Point Promotions</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">💰</div>
+                    <h3>POS & Cash Management</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>หน้าจัดการลิ้นชักเงินสด (Open/Close)</li>
+                    <li>ระบบ Payment & Invoice</li>
+                    <li>Sales History & Daily Summary</li>
+                    <li>Cash Drawer Management</li>
+                    <li>QR Code Payment</li>
+                    <li>Receipt & Tax Invoice printing</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🎯</div>
+                    <h3>UI/UX & Components</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>Reusable Components Library</li>
+                    <li>Multi-language (TH/EN) ด้วย next-intl</li>
+                    <li>Responsive Design ทุก breakpoint</li>
+                    <li>Custom Date Picker</li>
+                    <li>Modal & Dialog Systems</li>
+                    <li>Data Tables with pagination</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Client-Facing Pages</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>Home Page with animations</li>
+                    <li>Booking Form สำหรับลูกค้า</li>
+                    <li>Package & Service Cards</li>
+                    <li>Contact & Store Info</li>
+                    <li>Social Login Integration</li>
+                    <li>Mobile-first responsive layout</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Backend Section -->
+        <div class="section-title">
+            <h2>⚙️ Backend Development (GOJO-API)</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="backend-section">
+            <div class="backend-grid">
+                <div class="backend-card">
+                    <h4>🔌 APIs พื้นฐาน</h4>
+                    <ul>
+                        <li>CRUD สำหรับ Reward</li>
+                        <li>CRUD สำหรับ Member Level</li>
+                        <li>Customer Management APIs</li>
+                        <li>Booking & Invoice APIs</li>
+                        <li>Product Category APIs</li>
+                        <li>Formula Units & Components</li>
+                    </ul>
+                </div>
+
+                <div class="backend-card">
+                    <h4>📊 Reports APIs</h4>
+                    <ul>
+                        <li>Booking Count Compare</li>
+                        <li>Service Type Proportion</li>
+                        <li>Customer Inactivity Period</li>
+                        <li>Course Purchased Report</li>
+                        <li>Reward Redeemed Report</li>
+                        <li>Member Redemption Report</li>
+                    </ul>
+                </div>
+
+                <div class="backend-card">
+                    <h4>👤 Member System</h4>
+                    <ul>
+                        <li>Member Level with IsStarter</li>
+                        <li>Points & History System</li>
+                        <li>Customer Rewards</li>
+                        <li>Package Edit Reasons</li>
+                        <li>Booking Qty tracking</li>
+                        <li>Display Order management</li>
+                    </ul>
+                </div>
+
+                <div class="backend-card">
+                    <h4>🔧 Bug Fixes & Improvements</h4>
+                    <ul>
+                        <li>Pagination & Sorting fixes</li>
+                        <li>Validation & Error handling</li>
+                        <li>SQL Query optimization</li>
+                        <li>Response format standardization</li>
+                        <li>Multi-language support (TH/EN)</li>
+                        <li>Block time checking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section-title">
+            <h2>📅 ไทม์ไลน์งานตลอดปี</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-period">ม.ค. - ก.พ.</div>
+                <div class="timeline-content">
+                    <h4>🚀 Project Setup & Foundation</h4>
+                    <p>Setup โครงสร้างโปรเจค, พัฒนา Home Page, Layout System, เริ่มต้นระบบ Booking พื้นฐาน, Login/Auth, Date Picker Components</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-period">มี.ค. - เม.ย.</div>
+                <div class="timeline-content">
+                    <h4>📋 Booking & Payment Flow</h4>
+                    <p>พัฒนาระบบ Booking Detail, Verify Slip, Payment Flow, Invoice System, Calendar Integration</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-period">พ.ค. - มิ.ย.</div>
+                <div class="timeline-content">
+                    <h4>👥 Member & Customer Management</h4>
+                    <p>ระบบ Member Registration, Customer Profile, Package Management, Break Time System, Booking Addons</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-period">ก.ค. - ส.ค.</div>
+                <div class="timeline-content">
+                    <h4>🎁 Reward & Level System</h4>
+                    <p>CRUD Reward API, Member Level Management, Reports Backend, Promotions, Formula Units API</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-period">ก.ย. - ต.ค.</div>
+                <div class="timeline-content">
+                    <h4>📊 Reports & Analytics</h4>
+                    <p>Report Service Type Proportion, Customer Inactivity Period, QR Payment, Invoice Tax Format, Points System</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-period">พ.ย. - ธ.ค.</div>
+                <div class="timeline-content">
+                    <h4>💰 Cash & Advanced Reports</h4>
+                    <p>Cash Drawer Management, Course & Reward Purchased Reports, Member Redemption Report, Refinements & Bug Fixes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <section class="footer">
+            <div class="footer-emoji">🎉</div>
+            <h3>ยอดเยี่ยมมาก!</h3>
+            <p>ปี 2025 เป็นปีที่ productive มากๆ ทำงานครอบคลุมทั้ง Frontend และ Backend หลายระบบหลักของแอปพลิเคชัน</p>
+            <div class="generated-date">
+                📅 Generated on: 21 มกราคม 2026<br>
+                🔧 Powered by Git Log Analysis
+            </div>
+        </section>
+    </div>
+</body>
+</html>
