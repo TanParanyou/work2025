@@ -216,6 +216,10 @@
             background: linear-gradient(90deg, var(--secondary), var(--accent));
         }
 
+        .stat-card.api::before {
+            background: linear-gradient(90deg, var(--error), var(--warning));
+        }
+
         .stat-card.wallet::before {
             background: linear-gradient(90deg, var(--success), var(--accent));
         }
@@ -249,6 +253,10 @@
 
         .stat-card.wallet .stat-icon {
             background: rgba(16, 185, 129, 0.2);
+        }
+
+        .stat-card.api .stat-icon {
+            background: rgba(239, 68, 68, 0.2);
         }
 
         .stat-number {
@@ -552,9 +560,9 @@
         <!-- Total Banner -->
         <section class="total-banner">
             <div class="total-banner-content">
-                <div class="total-number">1,272</div>
+                <div class="total-number">1,338</div>
                 <div class="total-label">Total Commits in 2025</div>
-                <div class="total-sub">🔥 รวมจากทั้ง 5 โปรเจค</div>
+                <div class="total-sub">🔥 รวมจากทั้ง 6 โปรเจค</div>
             </div>
         </section>
 
@@ -589,6 +597,12 @@
                 <div class="stat-number">68</div>
                 <div class="stat-label">gojo-web-frontend</div>
                 <div class="stat-tech">Next.js Web App</div>
+            </div>
+            <div class="stat-card api">
+                <div class="stat-icon">🔗</div>
+                <div class="stat-number">66</div>
+                <div class="stat-label">API</div>
+                <div class="stat-tech">Node.js Backend</div>
             </div>
         </div>
 
@@ -896,6 +910,69 @@
             </div>
         </div>
 
+        <!-- Project 6: API -->
+        <div class="section-title">
+            <h2>🔗 API</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-section" style="border-color: var(--error);">
+            <div class="project-header">
+                <div class="project-icon" style="background: rgba(239, 68, 68, 0.2);">🔗</div>
+                <div class="project-info">
+                    <h3>API Backend (Car Service & QRP System)</h3>
+                    <div class="tech-stack">Node.js + Express + PostgreSQL</div>
+                    <div class="commit-count">66 commits</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📊 Report APIs</h4>
+                    <ul class="feature-list">
+                        <li>Revenue & Cost Comparison Report</li>
+                        <li>Zone Summary API</li>
+                        <li>Invoice History QRP</li>
+                        <li>Sales Summary Invoice</li>
+                        <li>Car Brand Graph queries</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🚗 Car Service Features</h4>
+                    <ul class="feature-list">
+                        <li>Repair Point Member API</li>
+                        <li>Duplicate Car Count</li>
+                        <li>Car Brand Master Data</li>
+                        <li>Zone Filtering</li>
+                        <li>Member Overview</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🧾 Invoice & Sales</h4>
+                    <ul class="feature-list">
+                        <li>Invoice History with Tax</li>
+                        <li>Sale History API</li>
+                        <li>Payment Type Filtering</li>
+                        <li>Cancel Reason tracking</li>
+                        <li>Deposit Balance Summary</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔧 Data & Utilities</h4>
+                    <ul class="feature-list">
+                        <li>Food Option Management</li>
+                        <li>Graph Order Queries</li>
+                        <li>Initial Price handling</li>
+                        <li>Database Connection fixes</li>
+                        <li>Condition-based filtering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Timeline -->
         <div class="section-title">
             <h2>📅 ไทม์ไลน์งานตลอดปี 2025</h2>
@@ -959,12 +1036,12 @@
         <section class="footer">
             <div class="footer-emoji">🎉</div>
             <h3>ปีที่ยอดเยี่ยมมาก!</h3>
-            <p>ปี 2025 เป็นปีที่ productive สุดๆ ทำงานครอบคลุมทั้ง Frontend, Backend และ Mobile App รวม 5 โปรเจค กับ
-                1,272 commits!</p>
+            <p>ปี 2025 เป็นปีที่ productive สุดๆ ทำงานครอบคลุมทั้ง Frontend, Backend และ Mobile App รวม 6 โปรเจค กับ
+                1,338 commits!</p>
             <div class="generated-date">
                 📅 Generated on: 21 มกราคม 2026<br>
                 🔧 Powered by Git Log Analysis<br>
-                👨‍💻 Developer: Tan (TanParanyou)
+                👨💻 Developer: Tan (TanParanyou)
             </div>
         </section>
     </div>
