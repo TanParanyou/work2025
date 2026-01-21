@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📊 Git Commit Summary 2025 - Tan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>📊 Git Commit Summary 2025 - Tan (All Projects)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #6366f1;
@@ -13,6 +15,8 @@
             --accent: #06b6d4;
             --success: #10b981;
             --warning: #f59e0b;
+            --error: #ef4444;
+            --purple: #a855f7;
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
             --bg-card-hover: #334155;
@@ -36,7 +40,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -45,7 +49,7 @@
         .hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(244, 114, 182, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(244, 114, 182, 0.2) 50%, rgba(6, 182, 212, 0.2) 100%);
             border-radius: 24px;
             margin-bottom: 3rem;
             position: relative;
@@ -64,8 +68,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         .hero-content {
@@ -111,18 +124,62 @@
             font-size: 1.1rem;
         }
 
-        /* Stats Section */
+        /* Total Stats Banner */
+        .total-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 50%, var(--secondary) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .total-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+        }
+
+        .total-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .total-number {
+            font-size: 5rem;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .total-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .total-sub {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
             margin-bottom: 3rem;
         }
 
         .stat-card {
             background: var(--bg-card);
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
@@ -136,52 +193,66 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .stat-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary);
         }
 
-        .stat-card.frontend::before {
+        .stat-card.sadai::before {
             background: linear-gradient(90deg, var(--accent), var(--success));
         }
 
-        .stat-card.backend::before {
-            background: linear-gradient(90deg, var(--warning), var(--secondary));
+        .stat-card.gojo-api::before {
+            background: linear-gradient(90deg, var(--warning), var(--error));
         }
 
-        .stat-card.total::before {
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        .stat-card.gojo-pos::before {
+            background: linear-gradient(90deg, var(--purple), var(--primary));
+        }
+
+        .stat-card.gojo-web::before {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .stat-card.wallet::before {
+            background: linear-gradient(90deg, var(--success), var(--accent));
         }
 
         .stat-icon {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
-        .stat-card.frontend .stat-icon {
+        .stat-card.sadai .stat-icon {
             background: rgba(6, 182, 212, 0.2);
         }
 
-        .stat-card.backend .stat-icon {
+        .stat-card.gojo-api .stat-icon {
             background: rgba(245, 158, 11, 0.2);
         }
 
-        .stat-card.total .stat-icon {
-            background: rgba(99, 102, 241, 0.2);
+        .stat-card.gojo-pos .stat-icon {
+            background: rgba(168, 85, 247, 0.2);
+        }
+
+        .stat-card.gojo-web .stat-icon {
+            background: rgba(244, 114, 182, 0.2);
+        }
+
+        .stat-card.wallet .stat-icon {
+            background: rgba(16, 185, 129, 0.2);
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
             -webkit-background-clip: text;
@@ -191,15 +262,15 @@
 
         .stat-label {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 500;
         }
 
-        .stat-detail {
+        .stat-tech {
             margin-top: 0.5rem;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         /* Section Title */
@@ -208,10 +279,11 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 2rem;
+            margin-top: 1rem;
         }
 
         .section-title h2 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
 
@@ -221,48 +293,71 @@
             background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
         }
 
-        /* Feature Cards */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .feature-card {
+        /* Project Section */
+        .project-section {
             background: var(--bg-card);
-            border-radius: 16px;
-            padding: 1.75rem;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            border-color: var(--primary);
-            background: var(--bg-card-hover);
-        }
-
-        .feature-header {
+        .project-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .project-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            background: rgba(99, 102, 241, 0.2);
+            font-size: 1.75rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.125rem;
+        .project-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .project-info .tech-stack {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .project-info .commit-count {
+            font-size: 0.875rem;
+            color: var(--primary);
             font-weight: 600;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-card {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .feature-list {
@@ -270,11 +365,11 @@
         }
 
         .feature-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
             position: relative;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .feature-list li::before {
@@ -283,6 +378,7 @@
             left: 0;
             color: var(--success);
             font-weight: 700;
+            font-size: 0.75rem;
         }
 
         /* Timeline */
@@ -297,7 +393,7 @@
         .timeline-item {
             display: flex;
             gap: 1.5rem;
-            padding: 1.25rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -306,10 +402,10 @@
         }
 
         .timeline-period {
-            min-width: 120px;
+            min-width: 100px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .timeline-content {
@@ -319,60 +415,12 @@
         .timeline-content h4 {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
 
         .timeline-content p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Backend Section */
-        .backend-section {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(244, 114, 182, 0.1) 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .backend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .backend-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .backend-card h4 {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .backend-card ul {
-            list-style: none;
-        }
-
-        .backend-card li {
-            padding: 0.4rem 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-
-        .backend-card li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--warning);
+            font-size: 0.875rem;
         }
 
         /* Footer */
@@ -396,7 +444,7 @@
 
         .footer p {
             color: var(--text-secondary);
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -409,6 +457,47 @@
             opacity: 0.7;
         }
 
+        /* Color classes */
+        .text-cyan {
+            color: var(--accent);
+        }
+
+        .text-yellow {
+            color: var(--warning);
+        }
+
+        .text-purple {
+            color: var(--purple);
+        }
+
+        .text-pink {
+            color: var(--secondary);
+        }
+
+        .text-green {
+            color: var(--success);
+        }
+
+        .bg-cyan {
+            background: rgba(6, 182, 212, 0.2);
+        }
+
+        .bg-yellow {
+            background: rgba(245, 158, 11, 0.2);
+        }
+
+        .bg-purple {
+            background: rgba(168, 85, 247, 0.2);
+        }
+
+        .bg-pink {
+            background: rgba(244, 114, 182, 0.2);
+        }
+
+        .bg-green {
+            background: rgba(16, 185, 129, 0.2);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -419,12 +508,16 @@
                 font-size: 2rem;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .total-number {
+                font-size: 3.5rem;
             }
 
-            .stat-number {
-                font-size: 2.5rem;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
             .timeline-item {
@@ -438,13 +531,14 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
                 <h1>📊 Git Commit Summary 2025</h1>
-                <p class="subtitle">สรุปผลงานการพัฒนาซอฟต์แวร์ตลอดปี 2025</p>
+                <p class="subtitle">สรุปผลงานการพัฒนาซอฟต์แวร์ตลอดปี 2025 - ทุกโปรเจค</p>
                 <div class="author">
                     <div class="avatar">T</div>
                     <div>
@@ -455,179 +549,348 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Total Banner -->
+        <section class="total-banner">
+            <div class="total-banner-content">
+                <div class="total-number">1,272</div>
+                <div class="total-label">Total Commits in 2025</div>
+                <div class="total-sub">🔥 รวมจากทั้ง 5 โปรเจค</div>
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
         <div class="stats-grid">
-            <div class="stat-card frontend">
+            <div class="stat-card sadai">
                 <div class="stat-icon">🎨</div>
                 <div class="stat-number">750</div>
-                <div class="stat-label">Frontend Commits</div>
-                <div class="stat-detail">sadai-project (Next.js + HeroUI)</div>
+                <div class="stat-label">sadai-project</div>
+                <div class="stat-tech">Next.js + HeroUI</div>
             </div>
-            <div class="stat-card backend">
+            <div class="stat-card gojo-pos">
+                <div class="stat-icon">📱</div>
+                <div class="stat-number">180</div>
+                <div class="stat-label">gojo_pos_2025</div>
+                <div class="stat-tech">Flutter Mobile App</div>
+            </div>
+            <div class="stat-card wallet">
+                <div class="stat-icon">💳</div>
+                <div class="stat-number">166</div>
+                <div class="stat-label">wallet-project</div>
+                <div class="stat-tech">Next.js + PostgreSQL</div>
+            </div>
+            <div class="stat-card gojo-api">
                 <div class="stat-icon">⚙️</div>
                 <div class="stat-number">108</div>
-                <div class="stat-label">Backend Commits</div>
-                <div class="stat-detail">GOJO-API (C# .NET)</div>
+                <div class="stat-label">GOJO-API</div>
+                <div class="stat-tech">C# .NET Backend</div>
             </div>
-            <div class="stat-card total">
-                <div class="stat-icon">🚀</div>
-                <div class="stat-number">858</div>
-                <div class="stat-label">Total Commits</div>
-                <div class="stat-detail">รวมทั้ง 2 Repositories</div>
+            <div class="stat-card gojo-web">
+                <div class="stat-icon">🌐</div>
+                <div class="stat-number">68</div>
+                <div class="stat-label">gojo-web-frontend</div>
+                <div class="stat-tech">Next.js Web App</div>
             </div>
         </div>
 
-        <!-- Frontend Features -->
+        <!-- Project 1: sadai-project -->
         <div class="section-title">
-            <h2>🎨 Frontend Development</h2>
+            <h2>🎨 sadai-project</h2>
             <div class="line"></div>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">📊</div>
-                    <h3>Dashboard & Reports</h3>
+        <div class="project-section" style="border-color: var(--accent);">
+            <div class="project-header">
+                <div class="project-icon bg-cyan">🎨</div>
+                <div class="project-info">
+                    <h3>Sadai Project (Admin POS System)</h3>
+                    <div class="tech-stack">Next.js 14 + HeroUI + Tailwind CSS + TypeScript</div>
+                    <div class="commit-count">750 commits</div>
                 </div>
-                <ul class="feature-list">
-                    <li>สร้าง Dashboard หลักพร้อม Chart.js</li>
-                    <li>รายงานการขาย, Stock, ส่วนลด</li>
-                    <li>รายงานเปรียบเทียบสาขา</li>
-                    <li>รายงาน Credit Invoice</li>
-                    <li>รายงาน Course Purchased & Reward Redeemed</li>
-                    <li>รายงาน Member Redemption</li>
-                </ul>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">📅</div>
-                    <h3>Booking & Calendar System</h3>
-                </div>
-                <ul class="feature-list">
-                    <li>พัฒนาระบบจองนัดหมายพร้อม Calendar view</li>
-                    <li>ระบบ Break Time สำหรับพนักงาน</li>
-                    <li>การจัดการ Booking Detail</li>
-                    <li>ระบบ Verify Slip</li>
-                    <li>Addons booking feature</li>
-                    <li>Employee grid และ time slots</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">👥</div>
-                    <h3>Member & Rewards System</h3>
-                </div>
-                <ul class="feature-list">
-                    <li>ระบบสมาชิก (Register, Profile, History)</li>
-                    <li>ระบบคะแนนสะสม Points</li>
-                    <li>Member Package & Level Management</li>
-                    <li>ระบบ Reward สำหรับสมาชิก</li>
-                    <li>Ticket & Coupon System</li>
-                    <li>Member Point Promotions</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">💰</div>
-                    <h3>POS & Cash Management</h3>
-                </div>
-                <ul class="feature-list">
-                    <li>หน้าจัดการลิ้นชักเงินสด (Open/Close)</li>
-                    <li>ระบบ Payment & Invoice</li>
-                    <li>Sales History & Daily Summary</li>
-                    <li>Cash Drawer Management</li>
-                    <li>QR Code Payment</li>
-                    <li>Receipt & Tax Invoice printing</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">🎯</div>
-                    <h3>UI/UX & Components</h3>
-                </div>
-                <ul class="feature-list">
-                    <li>Reusable Components Library</li>
-                    <li>Multi-language (TH/EN) ด้วย next-intl</li>
-                    <li>Responsive Design ทุก breakpoint</li>
-                    <li>Custom Date Picker</li>
-                    <li>Modal & Dialog Systems</li>
-                    <li>Data Tables with pagination</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="feature-icon">🏠</div>
-                    <h3>Client-Facing Pages</h3>
-                </div>
-                <ul class="feature-list">
-                    <li>Home Page with animations</li>
-                    <li>Booking Form สำหรับลูกค้า</li>
-                    <li>Package & Service Cards</li>
-                    <li>Contact & Store Info</li>
-                    <li>Social Login Integration</li>
-                    <li>Mobile-first responsive layout</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Backend Section -->
-        <div class="section-title">
-            <h2>⚙️ Backend Development (GOJO-API)</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="backend-section">
-            <div class="backend-grid">
-                <div class="backend-card">
-                    <h4>🔌 APIs พื้นฐาน</h4>
-                    <ul>
-                        <li>CRUD สำหรับ Reward</li>
-                        <li>CRUD สำหรับ Member Level</li>
-                        <li>Customer Management APIs</li>
-                        <li>Booking & Invoice APIs</li>
-                        <li>Product Category APIs</li>
-                        <li>Formula Units & Components</li>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📊 Dashboard & Reports</h4>
+                    <ul class="feature-list">
+                        <li>Dashboard หลักพร้อม Chart.js</li>
+                        <li>รายงานการขาย, Stock, ส่วนลด</li>
+                        <li>รายงานเปรียบเทียบสาขา</li>
+                        <li>Credit Invoice & Tax Invoice</li>
+                        <li>Course & Reward Reports</li>
                     </ul>
                 </div>
 
-                <div class="backend-card">
+                <div class="feature-card">
+                    <h4>📅 Booking System</h4>
+                    <ul class="feature-list">
+                        <li>Calendar view จองนัดหมาย</li>
+                        <li>Break Time สำหรับพนักงาน</li>
+                        <li>Booking Detail & Verify Slip</li>
+                        <li>Addons booking feature</li>
+                        <li>Employee time slots</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>👥 Member & Rewards</h4>
+                    <ul class="feature-list">
+                        <li>ระบบสมาชิก (Register, Profile)</li>
+                        <li>Points & Level Management</li>
+                        <li>Member Package Management</li>
+                        <li>Reward & Coupon System</li>
+                        <li>Point Promotions</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>💰 POS & Cash Management</h4>
+                    <ul class="feature-list">
+                        <li>Cash Drawer (Open/Close)</li>
+                        <li>Payment & Invoice System</li>
+                        <li>Sales History & Daily Summary</li>
+                        <li>QR Code Payment</li>
+                        <li>Receipt & Tax Invoice printing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: gojo_pos_2025 -->
+        <div class="section-title">
+            <h2>📱 gojo_pos_2025</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-section" style="border-color: var(--purple);">
+            <div class="project-header">
+                <div class="project-icon bg-purple">📱</div>
+                <div class="project-info">
+                    <h3>GOJO POS Mobile App</h3>
+                    <div class="tech-stack">Flutter + Dart + GetX State Management</div>
+                    <div class="commit-count">180 commits</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🎁 Reward & Member System</h4>
+                    <ul class="feature-list">
+                        <li>ระบบจัดการรางวัลสมาชิก</li>
+                        <li>Member Level Management</li>
+                        <li>Point Promotion Management</li>
+                        <li>Display Order รางวัล</li>
+                        <li>Product Level Upgrade</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>💵 Cash Management</h4>
+                    <ul class="feature-list">
+                        <li>Open/Close Cash Drawer</li>
+                        <li>Cash Drawer Detail & Print</li>
+                        <li>Daily Transaction Log</li>
+                        <li>Sales Summary Report</li>
+                        <li>Export Excel feature</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🧾 Receipt & Invoice</h4>
+                    <ul class="feature-list">
+                        <li>A4 Tax Invoice printing</li>
+                        <li>Invoice Type Filtering</li>
+                        <li>Customer Points Display</li>
+                        <li>Cancel Reason tracking</li>
+                        <li>Member Detail display</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎨 UI Components</h4>
+                    <ul class="feature-list">
+                        <li>AppRadioChip, AppStatusSwitch</li>
+                        <li>AppMultiSelectDialog</li>
+                        <li>AppConfirmDialog</li>
+                        <li>AppSectionHeader</li>
+                        <li>DateRangePicker</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: wallet-project -->
+        <div class="section-title">
+            <h2>💳 wallet-project</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-section" style="border-color: var(--success);">
+            <div class="project-header">
+                <div class="project-icon bg-green">💳</div>
+                <div class="project-info">
+                    <h3>Wallet Project (Digital Wallet System)</h3>
+                    <div class="tech-stack">Next.js + TypeScript + PostgreSQL + WebSocket</div>
+                    <div class="commit-count">166 commits</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🔐 Authentication & Security</h4>
+                    <ul class="feature-list">
+                        <li>Two-Factor Auth (2FA) + TOTP</li>
+                        <li>Backup Codes Management</li>
+                        <li>Trusted Devices</li>
+                        <li>Password Validation Rules</li>
+                        <li>Session Expiry Management</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>👛 Wallet Management</h4>
+                    <ul class="feature-list">
+                        <li>Wallet Access Permissions</li>
+                        <li>Batch Wallet Operations</li>
+                        <li>Transaction Reports</li>
+                        <li>Organization Access Control</li>
+                        <li>Admin Role Management</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>👤 User Profile</h4>
+                    <ul class="feature-list">
+                        <li>Profile Form with Address</li>
+                        <li>Thai Address Autocomplete</li>
+                        <li>ID Card & Contact Info</li>
+                        <li>Admin Profile Settings</li>
+                        <li>Client Profile Content</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📧 Notifications & Settings</h4>
+                    <ul class="feature-list">
+                        <li>Email Notifications (SMTP)</li>
+                        <li>WebSocket Integration</li>
+                        <li>Dynamic Icon Loading</li>
+                        <li>Admin Settings UI</li>
+                        <li>Transaction Alerts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4: GOJO-API -->
+        <div class="section-title">
+            <h2>⚙️ GOJO-API</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-section" style="border-color: var(--warning);">
+            <div class="project-header">
+                <div class="project-icon bg-yellow">⚙️</div>
+                <div class="project-info">
+                    <h3>GOJO API Backend</h3>
+                    <div class="tech-stack">C# .NET + Entity Framework + PostgreSQL</div>
+                    <div class="commit-count">108 commits</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🔌 APIs Development</h4>
+                    <ul class="feature-list">
+                        <li>CRUD Reward & Member Level</li>
+                        <li>Customer Management APIs</li>
+                        <li>Booking & Invoice APIs</li>
+                        <li>Product Category APIs</li>
+                        <li>Formula Units API</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
                     <h4>📊 Reports APIs</h4>
-                    <ul>
+                    <ul class="feature-list">
                         <li>Booking Count Compare</li>
                         <li>Service Type Proportion</li>
                         <li>Customer Inactivity Period</li>
                         <li>Course Purchased Report</li>
-                        <li>Reward Redeemed Report</li>
                         <li>Member Redemption Report</li>
                     </ul>
                 </div>
 
-                <div class="backend-card">
+                <div class="feature-card">
                     <h4>👤 Member System</h4>
-                    <ul>
+                    <ul class="feature-list">
                         <li>Member Level with IsStarter</li>
                         <li>Points & History System</li>
                         <li>Customer Rewards</li>
                         <li>Package Edit Reasons</li>
-                        <li>Booking Qty tracking</li>
                         <li>Display Order management</li>
                     </ul>
                 </div>
 
-                <div class="backend-card">
-                    <h4>🔧 Bug Fixes & Improvements</h4>
-                    <ul>
+                <div class="feature-card">
+                    <h4>🔧 Improvements</h4>
+                    <ul class="feature-list">
                         <li>Pagination & Sorting fixes</li>
                         <li>Validation & Error handling</li>
                         <li>SQL Query optimization</li>
-                        <li>Response format standardization</li>
-                        <li>Multi-language support (TH/EN)</li>
+                        <li>Multi-language (TH/EN)</li>
                         <li>Block time checking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5: gojo-web-frontend -->
+        <div class="section-title">
+            <h2>🌐 gojo-web-frontend</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-section" style="border-color: var(--secondary);">
+            <div class="project-header">
+                <div class="project-icon bg-pink">🌐</div>
+                <div class="project-info">
+                    <h3>GOJO Web Frontend (Car Service Reports)</h3>
+                    <div class="tech-stack">Next.js + Chart.js + Excel Export</div>
+                    <div class="commit-count">68 commits</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📊 Reports & Charts</h4>
+                    <ul class="feature-list">
+                        <li>Brand Pie Chart (dynamic height)</li>
+                        <li>Sales Summary Invoice Report</li>
+                        <li>Monthly Cost Comparison</li>
+                        <li>Zone Summary Report</li>
+                        <li>Car Count Graph</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📈 Analytics Features</h4>
+                    <ul class="feature-list">
+                        <li>Repair Point Customer Report</li>
+                        <li>Repair Point Member Report</li>
+                        <li>Revenue Detail Page</li>
+                        <li>Tax Details Display</li>
+                        <li>Zone Filtering</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📤 Export & UI</h4>
+                    <ul class="feature-list">
+                        <li>Advanced Excel Export</li>
+                        <li>SCToggleChart component</li>
+                        <li>New Sidebar Design</li>
+                        <li>Dynamic Payment Columns</li>
+                        <li>Client-side rendering</li>
                     </ul>
                 </div>
             </div>
@@ -635,7 +898,7 @@
 
         <!-- Timeline -->
         <div class="section-title">
-            <h2>📅 ไทม์ไลน์งานตลอดปี</h2>
+            <h2>📅 ไทม์ไลน์งานตลอดปี 2025</h2>
             <div class="line"></div>
         </div>
 
@@ -644,7 +907,8 @@
                 <div class="timeline-period">ม.ค. - ก.พ.</div>
                 <div class="timeline-content">
                     <h4>🚀 Project Setup & Foundation</h4>
-                    <p>Setup โครงสร้างโปรเจค, พัฒนา Home Page, Layout System, เริ่มต้นระบบ Booking พื้นฐาน, Login/Auth, Date Picker Components</p>
+                    <p>Setup โครงสร้างโปรเจค sadai-project, Home Page, Layout, Booking พื้นฐาน, New UI for
+                        gojo-web-frontend</p>
                 </div>
             </div>
 
@@ -652,7 +916,7 @@
                 <div class="timeline-period">มี.ค. - เม.ย.</div>
                 <div class="timeline-content">
                     <h4>📋 Booking & Payment Flow</h4>
-                    <p>พัฒนาระบบ Booking Detail, Verify Slip, Payment Flow, Invoice System, Calendar Integration</p>
+                    <p>Booking Detail, Verify Slip, Payment Flow, Invoice System, Calendar Integration</p>
                 </div>
             </div>
 
@@ -660,7 +924,8 @@
                 <div class="timeline-period">พ.ค. - มิ.ย.</div>
                 <div class="timeline-content">
                     <h4>👥 Member & Customer Management</h4>
-                    <p>ระบบ Member Registration, Customer Profile, Package Management, Break Time System, Booking Addons</p>
+                    <p>Member Registration, Customer Profile, Package Management, Break Time, Booking Addons, API
+                        Development</p>
                 </div>
             </div>
 
@@ -668,7 +933,7 @@
                 <div class="timeline-period">ก.ค. - ส.ค.</div>
                 <div class="timeline-content">
                     <h4>🎁 Reward & Level System</h4>
-                    <p>CRUD Reward API, Member Level Management, Reports Backend, Promotions, Formula Units API</p>
+                    <p>CRUD Reward API, Member Level Management, Reports Backend, Promotions, Formula Units</p>
                 </div>
             </div>
 
@@ -676,15 +941,16 @@
                 <div class="timeline-period">ก.ย. - ต.ค.</div>
                 <div class="timeline-content">
                     <h4>📊 Reports & Analytics</h4>
-                    <p>Report Service Type Proportion, Customer Inactivity Period, QR Payment, Invoice Tax Format, Points System</p>
+                    <p>Service Type Proportion, Customer Inactivity, QR Payment, Invoice Tax Format, Points System</p>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-period">พ.ย. - ธ.ค.</div>
                 <div class="timeline-content">
-                    <h4>💰 Cash & Advanced Reports</h4>
-                    <p>Cash Drawer Management, Course & Reward Purchased Reports, Member Redemption Report, Refinements & Bug Fixes</p>
+                    <h4>💰 Cash & Advanced Features</h4>
+                    <p>Cash Drawer Management, Course & Reward Reports, Wallet 2FA, Mobile App Features, Member
+                        Redemption</p>
                 </div>
             </div>
         </div>
@@ -692,13 +958,16 @@
         <!-- Footer -->
         <section class="footer">
             <div class="footer-emoji">🎉</div>
-            <h3>ยอดเยี่ยมมาก!</h3>
-            <p>ปี 2025 เป็นปีที่ productive มากๆ ทำงานครอบคลุมทั้ง Frontend และ Backend หลายระบบหลักของแอปพลิเคชัน</p>
+            <h3>ปีที่ยอดเยี่ยมมาก!</h3>
+            <p>ปี 2025 เป็นปีที่ productive สุดๆ ทำงานครอบคลุมทั้ง Frontend, Backend และ Mobile App รวม 5 โปรเจค กับ
+                1,272 commits!</p>
             <div class="generated-date">
                 📅 Generated on: 21 มกราคม 2026<br>
-                🔧 Powered by Git Log Analysis
+                🔧 Powered by Git Log Analysis<br>
+                👨‍💻 Developer: Tan (TanParanyou)
             </div>
         </section>
     </div>
 </body>
+
 </html>
